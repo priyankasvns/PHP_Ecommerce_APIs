@@ -104,6 +104,365 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/Register.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "368afaf3-f692-4a84-8a16-d796d11234f0",
+						"exec": [
+							"pm.test(\"RegisterNewValidUser\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isExistingUser).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"The email address is now registered\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"sadode1724@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"name\":\"Sandeep\",\r\n\"phone\":\"2028089898\",\r\n\"date_of_birth\":\"2018-02-01\",\r\n\"date_joined\":\"2020-06-01 23:41:28\",\r\n\"updated_date\":\"2020-06-16 23:41:28\",\r\n\"activated\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/api/Register.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"Register.php"
+					]
+				},
+				"description": "Register New users only"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/Register.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b62f8086-4d62-4604-b948-0d3954e876ff",
+						"exec": [
+							"pm.test(\"NotRegisterExistingUser\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isExistingUser).to.eql(true);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Please try to login as this email has already been registered with us.\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"sadode1719@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"name\":\"Sandeep\",\r\n\"phone\":\"2028089898\",\r\n\"date_of_birth\":\"2018-02-01\",\r\n\"date_joined\":\"2020-06-01 23:41:28\",\r\n\"updated_date\":\"2020-06-16 23:41:28\",\r\n\"activated\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/api/Register.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"Register.php"
+					]
+				},
+				"description": "Do not register existing users"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/Register.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "798224d7-ff20-4604-bebc-fbb336f75948",
+						"exec": [
+							"pm.test(\"NotRegisterInvalidEmail\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isInvalidUser).to.eql(true);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"sadode1719.on.ca\",\r\n\"password\":\"Password\",\r\n\"name\":\"Sandeep\",\r\n\"phone\":\"2028089898\",\r\n\"date_of_birth\":\"2018-02-01\",\r\n\"date_joined\":\"2020-06-01 23:41:28\",\r\n\"updated_date\":\"2020-06-16 23:41:28\",\r\n\"activated\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/api/Register.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"Register.php"
+					]
+				},
+				"description": "Do not register invalid email"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/Register.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "286284b2-af66-423d-9f7c-69aa6475941a",
+						"exec": [
+							"pm.test(\"NOT A POST REQUEST\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.not.oneOf([201,202]);\r",
+							"    pm.expect(pm.response.json().message).to.eql(\"Invalid request method. Please use post to insert\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"sadode1720@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"name\":\"Sandeep\",\r\n\"phone\":\"2028089898\",\r\n\"date_of_birth\":\"2018-02-01\",\r\n\"date_joined\":\"2020-06-01 23:41:28\",\r\n\"updated_date\":\"2020-06-16 23:41:28\",\r\n\"activated\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/api/Register.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"Register.php"
+					]
+				},
+				"description": "Check if the current is not a post request"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/Login.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "40ef5374-85d0-4b3e-8200-d3d1cf5391aa",
+						"exec": [
+							"pm.test(\"ValidCredentials\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isLoggedIn).to.eql(true);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Logged in successfully\")\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"sadode1720@conestogac.on.ca\",\r\n\"password\":\"Password\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/api/Login.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"Login.php"
+					]
+				},
+				"description": "Login using valid credentials"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/Login.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3bbc55fc-19d1-4217-89e6-893fb4fce279",
+						"exec": [
+							"pm.test(\"InvalidCredentials\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isLoggedIn).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Email or password does not match\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"sadode1720@conestogac.on.ca\",\r\n\"password\":\"Passwords\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/api/Login.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"Login.php"
+					]
+				},
+				"description": "Do not login because of invalid credentials"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/Login.php?email=sadode1720@conestogac.on.ca&password=Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "901a42ba-b3c9-4192-b1a2-c0d20312506a",
+						"exec": [
+							"pm.test(\"InvalidMethodVerb\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isLoggedIn).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Please select either POST or DELETE method verbs.\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/Shopo/api/Login.php?email=sadode1720@conestogac.on.ca&password=Password",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"Login.php"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "sadode1720@conestogac.on.ca"
+						},
+						{
+							"key": "password",
+							"value": "Password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/Login.php?email=sadode1720@conestogac.on.ca&password=Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d4e1360c-85cd-4830-bde1-7d1c3d9a2158",
+						"exec": [
+							"pm.test(\"ValidLogout\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isLoggedIn).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Logged out successfully\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/api/Login.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"Login.php"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}

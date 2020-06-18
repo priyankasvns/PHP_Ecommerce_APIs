@@ -56,6 +56,9 @@ class ProductGetRequest{
         catch(PDOException $e){
             echo 'Database Connection Error: '.$e->getMessage();
         }
+        try{
+            if($this->conn != null)
+            {
         $query = 'SELECT Prod.product_id, Prod.size, Prod.color, Prod.name, Prod.description, Prod.price, Prod.picture, Prod.available_quantity FROM products Prod
         WHERE product_id = :productid LIMIT 1';
         
@@ -68,6 +71,11 @@ class ProductGetRequest{
             echo "Some error with DB connection . Please check it.";
         }
         return $statement;
+    }
+    catch(Exception $e){
+        echo "Some error occured while executing the fetch query.";
+    }
+
     }
 }
 ?>

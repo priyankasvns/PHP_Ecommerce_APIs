@@ -1,0 +1,229 @@
+{
+	"id": "7105e855-bace-4930-9a2f-0e37836628ec",
+	"name": "E-Commerce",
+	"timestamp": "2020-06-18T22:21:48.416Z",
+	"collection_id": "1df9120f-7c97-49f1-864f-129f431a5138",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 10,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "ce3c0dea-9af5-4d64-9c1c-b97baf70708e",
+			"name": "localhost/Shopo/api/FetchProducts.php",
+			"url": "http://localhost/Shopo/api/FetchProducts.php",
+			"time": 430,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"FetchAllProducts": true
+			},
+			"testPassFailCounts": {
+				"FetchAllProducts": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				430
+			],
+			"allTests": [
+				{
+					"FetchAllProducts": true
+				}
+			]
+		},
+		{
+			"id": "a06074c1-d281-4487-b773-d724e9f1a758",
+			"name": "localhost/Shopo/api/Register.php",
+			"url": "http://localhost/Shopo/api/Register.php",
+			"time": 576,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"RegisterNewValidUser": true
+			},
+			"testPassFailCounts": {
+				"RegisterNewValidUser": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				576
+			],
+			"allTests": [
+				{
+					"RegisterNewValidUser": true
+				}
+			]
+		},
+		{
+			"id": "21d4c0fb-2cd8-4990-8e01-3806f478579f",
+			"name": "localhost/Shopo/api/Register.php",
+			"url": "http://localhost/Shopo/api/Register.php",
+			"time": 424,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"NotRegisterExistingUser": true
+			},
+			"testPassFailCounts": {
+				"NotRegisterExistingUser": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				424
+			],
+			"allTests": [
+				{
+					"NotRegisterExistingUser": true
+				}
+			]
+		},
+		{
+			"id": "9e774ac6-4bfc-483d-9912-15445ac1c678",
+			"name": "localhost/Shopo/api/Register.php",
+			"url": "http://localhost/Shopo/api/Register.php",
+			"time": 411,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"NOT A POST REQUEST": true
+			},
+			"testPassFailCounts": {
+				"NOT A POST REQUEST": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				411
+			],
+			"allTests": [
+				{
+					"NOT A POST REQUEST": true
+				}
+			]
+		},
+		{
+			"id": "0cb2d4a7-50e1-406c-84c1-9af7d970a793",
+			"name": "localhost/Shopo/api/Login.php",
+			"url": "http://localhost/Shopo/api/Login.php",
+			"time": 565,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				565
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "3d698d8c-4e15-4d38-89e3-e5a3a4cea3eb",
+			"name": "localhost/Shopo/api/Login.php?email=sadode1720@conestogac.on.ca&password=Password",
+			"url": "http://localhost/Shopo/api/Login.php?email=sadode1720@conestogac.on.ca&password=Password",
+			"time": 411,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				411
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "d0e65a3b-0caa-4100-b2f6-271d7c85320b",
+			"name": "localhost/Shopo/api/Login.php?email=sadode1720@conestogac.on.ca&password=Password",
+			"url": "http://localhost/Shopo/api/Login.php",
+			"time": 412,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"ValidLogout": true
+			},
+			"testPassFailCounts": {
+				"ValidLogout": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				412
+			],
+			"allTests": [
+				{
+					"ValidLogout": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 3229,
+	"collection": {
+		"requests": [
+			{
+				"id": "87782915-c20b-409f-a4c8-988628222958",
+				"method": "GET"
+			},
+			{
+				"id": "ce3c0dea-9af5-4d64-9c1c-b97baf70708e",
+				"method": "GET"
+			},
+			{
+				"id": "a06074c1-d281-4487-b773-d724e9f1a758",
+				"method": "POST"
+			},
+			{
+				"id": "21d4c0fb-2cd8-4990-8e01-3806f478579f",
+				"method": "POST"
+			},
+			{
+				"id": "dbd7171f-0616-443b-8784-2608a1a150af",
+				"method": "POST"
+			},
+			{
+				"id": "9e774ac6-4bfc-483d-9912-15445ac1c678",
+				"method": "PUT"
+			},
+			{
+				"id": "0ed23dcb-0916-4cf7-957f-773c2c84eac5",
+				"method": "POST"
+			},
+			{
+				"id": "0cb2d4a7-50e1-406c-84c1-9af7d970a793",
+				"method": "POST"
+			},
+			{
+				"id": "3d698d8c-4e15-4d38-89e3-e5a3a4cea3eb",
+				"method": "GET"
+			},
+			{
+				"id": "d0e65a3b-0caa-4100-b2f6-271d7c85320b",
+				"method": "DELETE"
+			}
+		]
+	}
+}
