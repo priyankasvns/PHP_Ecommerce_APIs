@@ -125,7 +125,7 @@ class createCartRec{
 
         try{
             if($stmt->execute()){
-                echo 'in exec function';
+                //echo 'in exec function';
                 return true;
         }
 
@@ -190,7 +190,7 @@ class createCartRec{
 
     if($available_quantity > 0){
         $isProdAvailable = true;
-        echo 'success - '.$available_quantity.' quantity for prod id - '.$product_id;
+        //echo 'success - '.$available_quantity.' quantity for prod id - '.$product_id;
     }
     else{
         echo 'fail'.$available_quantity;
@@ -243,7 +243,7 @@ class createCartRec{
     }
 
     if($address_id != null){
-        echo 'success - '.$address_id.' is the address id fetched for user id - '.$user_id;
+        //echo 'success - '.$address_id.' is the address id fetched for user id - '.$user_id;
         return $address_id;
         
     }
@@ -254,11 +254,7 @@ class createCartRec{
   }
 
   function createCartEntry($address_id, $user_id,$quantity){
-    // header('Access-COntrol-Allow-Origin: *');
-    // header('Content-type: application/json');
-    // header('Access-Control-Allow-Methods: POST');
-    // header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-type,Access-Control-Allow-Methods, Authorization, X-Requested-With');
-
+   
     header("Access-Control-Allow-Origin: *");
     header("Content-Type: application/json; charset=UTF-8");
     header("Access-Control-Allow-Methods: POST");
@@ -302,9 +298,7 @@ class createCartRec{
         echo 'addressid of user:  '.$fetchedAddressId;
 
         $insert = createCartEntry($fetchedAddressId, $user_id, $quantity);
-        //echo 'insert: '.$insert;
-
-
+    
     }
     catch (Exception $e) 
     {
