@@ -30,7 +30,7 @@ try{
                     array_push($product_arr['data'],$product_item);
 
                 }
-                echo json_encode(array_pop($product_arr['data']));        
+                echo json_encode(array_pop($product_item));        
         }
         else {
             echo json_encode(array('message' => 'No products found'));
