@@ -125,16 +125,14 @@ class createCartRec{
 
         try{
             if($stmt->execute()){
-                //echo 'in exec function';
                 return true;
         }
 
-        echo 'returning false function';
         printf("Error %s. \n", $stmt->error);
         return false;
         }
         catch(Exception $e){
-            echo 'issue in try'.$e;
+            echo 'issue in executing the statement'.$e;
         }
         
     
@@ -190,10 +188,10 @@ class createCartRec{
 
     if($available_quantity > 0){
         $isProdAvailable = true;
-        //echo 'success - '.$available_quantity.' quantity for prod id - '.$product_id;
     }
     else{
-        echo 'fail'.$available_quantity;
+        echo 'Product is not available. Please try later!';
+        $isProdAvailable =false;
     }
 
 
@@ -243,12 +241,12 @@ class createCartRec{
     }
 
     if($address_id != null){
-        //echo 'success - '.$address_id.' is the address id fetched for user id - '.$user_id;
         return $address_id;
         
     }
     else{
-        echo 'fail'.$address_id;
+        echo 'Failure to fetch address id for the user!';
+        return null;
     }
 
   }
@@ -265,17 +263,12 @@ class createCartRec{
     
 
     if($createCartRecord->createCart($address_id,$user_id,$quantity)){
-        echo 'insert successful';
-        
-       
+        echo "</br>";
+        echo "\n Insert successful!";
     }
     else{
-        echo 'unsuccessful';
-        
+        echo 'Insert is unsuccessful!';
     }
-
-    
-
   }
 
   $http_verb = strtolower($_SERVER['REQUEST_METHOD']);
@@ -292,18 +285,17 @@ class createCartRec{
         $quantity = $json['quantity'];
         
         $output = isProductAvailable($product_id);
-        echo 'output bool:  '.$output;
 
-        $fetchedAddressId = fetchAddressOfUser($user_id);
-        echo 'addressid of user:  '.$fetchedAddressId;
-
-        $insert = createCartEntry($fetchedAddressId, $user_id, $quantity);
-    
+        if($output){
+            $fetchedAddressId = fetchAddressOfUser($user_id);
+            if($fetchedAddressId != null){
+                $insert = createCartEntry($fetchedAddressId, $user_id, $quantity);
+            }
+        }
+        
     }
     catch (Exception $e) 
     {
-      //
+      echo $e;
     }
 }
-
-?>
