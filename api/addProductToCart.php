@@ -297,5 +297,6 @@ class createCartRec{
     catch (Exception $e) 
     {
       echo $e;
+      
     }
 }
