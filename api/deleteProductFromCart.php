@@ -211,7 +211,7 @@ if ($http_verb == 'post') {
                     $delete = deleteCartEntry($product_id, $user_id);
                 }
                 else{
-                    echo 'No products have been added to cart with product id'.$product_id.'by user'.$user_id;
+                    echo 'No products have been added to cart with product id '.$product_id.'by user '.$user_id;
                 }
             }
             else{
@@ -220,7 +220,7 @@ if ($http_verb == 'post') {
             
             
         } else {
-            echo 'No products have been added to cart with product id'.$product_id.'by user'.$user_id;
+            echo 'No products have been added to cart with product id '.$product_id.'by user '.$user_id;
         }
     } catch (Exception $e) {
         echo $e;
