@@ -8,6 +8,7 @@ class OrdersGetRequest{
     private $table = 'orders';
 // Order table properties
     public $order_id;
+    public $order_reference_id;
     public $user_id;
     public $product_id;
     public $cart_id;
@@ -30,7 +31,7 @@ class OrdersGetRequest{
             {
                 // echo "Connection is successful";
                 
-                $stmt = $this->conn->prepare('SELECT Order.Order_id, Order.product_id,Order.cart_id,Order.quantity, Order.status, Order.amount, Order.order_date_time FROM orders Order WHERE order_id = $order_id');
+                $stmt = $this->conn->prepare('SELECT Order.Order_id, Order.order_reference_id, Order.product_id,Order.cart_id,Order.quantity, Order.status, Order.amount, Order.order_date_time FROM orders Order WHERE order_reference_id = :order_reference_id');
                 $stmt ->execute();  
             }                        
              
@@ -46,8 +47,8 @@ class OrdersGetRequest{
     }
     public function fetchSingleOrder($Order){
         $this->conn = null;
-        $this->order_id = $order;
-        echo $this->order_id;
+        $this->order_reference_id = $order_reference_id;
+        echo $this->order_reference_id;
         try{
             $this->conn = new PDO('mysql:host='.$this->host.';dbname='.$this->db_name,$this->db_user,$this->db_password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -55,12 +56,12 @@ class OrdersGetRequest{
         catch(PDOException $e){
             echo 'Database Connection Error: '.$e->getMessage();
         }
-        $query = 'SELECT Order.order_id,  Order.product_id,Order.cart_id,Order.quantity, Order.status, Order.amount, Order.order_date_time FROM orders Order WHERE order_id = $order_id
-        WHERE order_id = :orderid LIMIT 1';
+        $query = 'SELECT Order.order_id, Order.order_reference_id, Order.product_id,Order.cart_id,Order.quantity, Order.status, Order.amount, Order.order_date_time FROM orders Order 
+        WHERE order_reference_id = :order_reference_id';
         
         if($this->conn != null){
         $statement = $this->conn->prepare($query);
-        $statement->bindParam(':orderid', $this->order_id);
+        $statement->bindParam(':order_reference_id', $this->order_reference_id);
         $statement->execute();
         }
         else{
