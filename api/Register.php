@@ -13,12 +13,10 @@ try{
         $name = $json['name'];
         $phone = $json['phone'];
         $date_of_birth = $json['date_of_birth'];
-        $date_joined = $json['date_joined'];
-        $updated_date = $json['updated_date'];
         $activated = $json['activated'];
 
         $register = new User();
-        $result = $register->validateNewUser($email,$password,$name,$date_of_birth,$phone,$date_joined,$updated_date,$activated);    
+        $result = $register->validateNewUser($email,$password,$name,$date_of_birth,$phone,$activated);    
         if ($register->invalidEmail == false) {
             $myObj = new stdClass();
             $myObj->isExistingUser = $result == false;

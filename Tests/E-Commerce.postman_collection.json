@@ -128,7 +128,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"sadode1724@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"name\":\"Sandeep\",\r\n\"phone\":\"2028089898\",\r\n\"date_of_birth\":\"2018-02-01\",\r\n\"date_joined\":\"2020-06-01 23:41:28\",\r\n\"updated_date\":\"2020-06-16 23:41:28\",\r\n\"activated\":\"1\"}",
+					"raw": "{\"email\":\"sadode1724@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"name\":\"Sandeep\",\r\n\"phone\":\"2028089898\",\r\n\"date_of_birth\":\"2018-02-01\",\r\n\"activated\":\"1\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -459,6 +459,143 @@
 						"Shopo",
 						"api",
 						"Login.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/Activate_DeactivateUser.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ebd28e6b-e8c1-41fa-ac28-8cb468160c1e",
+						"exec": [
+							"pm.test(\"ActivateDeactivateUserProfile\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isUpdated).to.eql(true);\r",
+							"    pm.expect(jsonData.message).to.eql(\"User Profile Updated successfully\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"sadode1724@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"activated\":true}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/api/Activate_DeactivateUser.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"Activate_DeactivateUser.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/Activate_DeactivateUser.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "99829ba8-cf01-4e1e-b0e7-2b52f4b46296",
+						"exec": [
+							"pm.test(\"NotActivateDeactivateUserProfile\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isUpdated).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Could not be updated\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"sadode1724@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"activated\":true}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/api/Activate_DeactivateUser.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"Activate_DeactivateUser.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/Activate_DeactivateUser.php?email=sadode1724@conestogac.on.ca&password=Password&activated=true",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9bcf9011-e009-4837-a57e-874708870823",
+						"exec": [
+							"pm.test(\"InvalidMethodVerbWhileActivatingDeactivatingUser\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isUpdated).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Invalid request method. Please use POST to update\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/Shopo/api/Activate_DeactivateUser.php?email=sadode1724@conestogac.on.ca&password=Password&activated=true",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"Activate_DeactivateUser.php"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "sadode1724@conestogac.on.ca"
+						},
+						{
+							"key": "password",
+							"value": "Password"
+						},
+						{
+							"key": "activated",
+							"value": "true"
+						}
 					]
 				}
 			},
