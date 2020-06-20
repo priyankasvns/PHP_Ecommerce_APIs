@@ -15,6 +15,7 @@ try{
                 $order_arr = array();
                 $order_arr['data'] = array();  
                 while($row = $result->fetch(PDO::FETCH_ASSOC)){
+                    
                     extract($row);
                     $order_history[] = array(  
                         'order_id' => $order_id                   
