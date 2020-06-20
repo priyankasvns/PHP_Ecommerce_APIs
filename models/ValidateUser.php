@@ -17,6 +17,8 @@ class User{
     public $updated_date;
     public $activated;
 
+    public $newPassword;
+
     public $inserted;
     public $invalidEmail;
     public $updated;
@@ -126,40 +128,36 @@ class User{
             $stmt->bindValue(':email',$this->email);
             $stmt->execute();
             
-            $result = $stmt->fetch(PDO::FETCH_ASSOC); 
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);             
             if ($result) {
                 if(password_verify($this->password, $result['password'])){
-                    $userId = $result['user_id'];
-                
+                    $userId = $result['user_id'];                
                 $statement = $GLOBALS['conn']->prepare('UPDATE ' . $this->table .
                 ' SET activated=:activated WHERE email=:email');
                 
                 $statement->bindValue(':email',$this->email);                
                 $statement->bindValue(':activated',$this->activated);
-                $updateResult = $statement->execute();
-                
+                $updateResult = $statement->execute();                
                 try{               
-                    if($updateResult == 1){                
-                        if ($result['activated']==0 && $this->activated==0) {                                                        
+                    if($updateResult == 1){                                    
+                        if ($result['activated']==0 && $this->activated==0) {                                                                            
                             $this->isActivated = false;
-                            $this->updated = false;                         
+                            $this->updated = true;                         
                         }
-                        else if($result['activated']==1 && $this->activated==1){                                                        
+                        else if($result['activated']==1 && $this->activated==1){                                                                               
                             $this->isActivated = true;
-                            $this->updated = false;                            
+                            $this->updated = true;                            
                         }
                         else if ($result['activated']==0 && $this->activated==1) {
                             $this->isActivated = true;
                             $this->updated = true;                          
                         }
-                        else if($result['activated']==1 && $this->activated==0){
+                        else if($result['activated']==1 && $this->activated==0){                      
                             $this->isActivated = true;
-                            $this->updated = false; 
-                        }
-                        // $this->updated = true;   
-                        // echo "Updated......";                                        
+                            $this->updated = true; 
+                        }                                                           
                     }
-                    else{
+                    else{                        
                         $this->updated = false; 
                                         
                     }           
@@ -170,11 +168,11 @@ class User{
                 $this->nonUser = false;
                 
             }
-            else {
+            else {              
                 $this->nonUser = true;  
                 $this->updated=false; 
                           
-            }
+            }        
             $this->invalidEmail=false;
             }
             else{
@@ -190,6 +188,70 @@ class User{
     }
 
     return $this->updated;
+}
+
+public function updatePassword($email,$password,$newPassword){
+    $this->email = $email;
+    $this->password = $password;
+    $this->newPassword = $newPassword;
+    try{
+        $GLOBALS['conn'] = new PDO('mysql:host='.$this->host.';dbname='.$this->db_name,$this->db_user,$this->db_password);
+        $GLOBALS['conn']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch(PDOException $e){
+        echo 'Database Connection Error: '.$e->getMessage();
+    }    
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $stmt = $GLOBALS['conn']->prepare('SELECT * FROM '.$this->table.' WHERE email=:email');
+        $stmt->bindValue(':email',$this->email);
+        $stmt->execute();
+        
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);             
+        if ($result) {
+            if(password_verify($this->password, $result['password'])){
+                $userId = $result['user_id'];                
+            $statement = $GLOBALS['conn']->prepare('UPDATE ' . $this->table .
+            ' SET password=:newPassword, updated_date=:updatedon WHERE email=:email');
+            
+            $statement->bindValue(':email',$this->email);                
+            $statement->bindValue(':newPassword',password_hash($this->newPassword,PASSWORD_DEFAULT));
+            $statement->bindValue(':updatedon',date('Y-m-d H:i:s'));
+            $updateResult = $statement->execute();                
+            try{               
+                if($updateResult == 1){                                    
+                  
+                        $this->updated = true;                                                                                 
+                }
+                else{                        
+                    $this->updated = false; 
+                                    
+                }           
+            }
+            catch(Exception $e){
+                echo "Something went wrong...".$e;
+            } 
+            $this->nonUser = false;
+            
+        }
+        else {              
+            $this->nonUser = true;  
+            $this->updated=false; 
+                      
+        }        
+        $this->invalidEmail=false;
+        }
+        else{
+            $this->invalidEmail=true;
+            $this->updated = false;
+         
+        }    
+}
+else{
+    $this->invalidEmail=true;
+    $this->updated = false;
+   
+}
+return $this->updated;
 }
 }
 ?>
