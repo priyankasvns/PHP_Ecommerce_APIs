@@ -47,16 +47,14 @@
         $sql = $db->prepare('DELETE FROM Comments WHERE user_id = :user_id');
         $sql->bindValue(':user_id', $user_id);
 
-        $sql->execute();
-        
+        $sql->execute();       
         
       }
     
     catch(PDOException $e) 
     {
       echo $e->getMessage();
-    }
-  
+    }  
   }
 
   $http_verb = strtolower($_SERVER['REQUEST_METHOD']);
