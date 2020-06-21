@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "f7a5a979-71ff-48c6-b59a-0c5072f21bfd",
+		"name": "AddressAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost/Shopo/Web Technologies (Project 2)/api/UpdateUserAddress.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dd8aaf8e-ef6c-41ae-8bfc-cde66de1d665",
+						"exec": [
+							"pm.test(\"SuccessfullyUpdatesUserAddress\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isUpdated).to.eql(true);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Address is updated\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\", \"address_id\":\"1\",\"last_name\":\"Tsai_2\",\"first_name\":\"Hung-Chun_2\",\"address1\":\"10 Valley Rd\",\"postcode\":\"N2P1H3\",\"city\":\"Brandford\",\"phone\":\"226-500-6041\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/UpdateUserAddress.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"UpdateUserAddress.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/Web Technologies (Project 2)/api/UpdateUserAddress.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5562917a-d009-4cf3-a188-a176779f2bf5",
+						"exec": [
+							"pm.test(\"SuccessfullyUpdatesUserAddress\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"Please select either POST method\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\", \"address_id\":\"1\",\"last_name\":\"Tsai_2\",\"first_name\":\"Hung-Chun_2\",\"address1\":\"10 Valley Rd\",\"postcode\":\"N2P1H3\",\"city\":\"Brandford\",\"phone\":\"226-500-6041\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/UpdateUserAddress.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"UpdateUserAddress.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/Web Technologies (Project 2)/api/GetUserAddress.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bbb73656-5134-4ee3-9e58-c00dcf6d963f",
+						"exec": [
+							"pm.test(\"ValidCredentials\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.getAddress).to.eql(true);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Get user's address\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/GetUserAddress.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"GetUserAddress.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/Web Technologies (Project 2)/api/GetUserAddress.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7044b166-0168-4cb2-934c-2b490c64b9ea",
+						"exec": [
+							"pm.test(\"ValidCredentials\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.getAddress).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"There is no address in user's account\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"4\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/GetUserAddress.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"GetUserAddress.php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
