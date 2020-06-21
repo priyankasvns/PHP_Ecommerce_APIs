@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "00e35455-6c5e-4354-9f48-4ce11ea56ab1",
+		"name": "FetchAllCommentsOfAProduct_Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost/myweb/php_project/FetchAllCommentsForAProduct.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d659099e-48be-409b-a381-32741351e534",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"product_id\":\"3\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/myweb/php_project/FetchAllCommentsForAProduct.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"myweb",
+						"php_project",
+						"FetchAllCommentsForAProduct.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/myweb/php_project/FetchAllCommentsForAProduct.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3ca734ab-0633-4ace-8908-13cb9a9ec41f",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success! \");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"product_id\":\"3\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/myweb/php_project/FetchAllCommentsForAProduct.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"myweb",
+						"php_project",
+						"FetchAllCommentsForAProduct.php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
