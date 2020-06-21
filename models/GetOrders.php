@@ -1,79 +1,72 @@
 <?php
 class OrdersGetRequest{
     private $host = 'localhost';
-    private $db_name = 'shopo';
+    private $db_name = 'shopoo';
     private $db_user = 'root';
     private $db_password = '';
     private $conn;
     private $table = 'orders';
+
 // Order table properties
     public $order_id;
     public $order_reference_id;
-    public $user_id;
+    public $email;
+    public $password;
     public $product_id;
-    public $cart_id;
-    public $quantity;
-    public $status;
+    public $quantity;   
     public $amount;
     public $order_date_time;
-    //Fetching all orders from the database
-    public function fetchOrders(){
-        $this->conn = null;
-        try{
-            $this->conn = new PDO('mysql:host='.$this->host.';dbname='.$this->db_name,$this->db_user,$this->db_password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        }
-        catch(PDOException $e){
-            echo 'Database Connection Error: '.$e->getMessage();
-        }
-        try{
-            if($this->conn != null)
-            {
-                // echo "Connection is successful";
-                
-                $stmt = $this->conn->prepare('SELECT Order.Order_id, Order.order_reference_id, Order.product_id,Order.cart_id,Order.quantity, Order.status, Order.amount, Order.order_date_time FROM orders Order WHERE order_reference_id = :order_reference_id');
-                $stmt ->execute();  
-            }                        
-             
-        else{
-            echo "Problem fetching dbConnection variable and prepare method cannot be used yet";
-        }
-        return $stmt;
-        }
-        catch(Exception $e){
-        echo "Some error occured while executing the fetch query.";
-    }
+    public $userId;
 
-    }
-    public function fetchSingleOrder($Order){
-        $this->conn = null;
-        $this->order_reference_id = $order_reference_id;
-        echo $this->order_reference_id;
+    public $fetched;
+    public $validUser;
+    //Fetching all orders from the database
+    public function fetchOrders($email,$password){
+        $this->email = $email;
+        $this->password = $password;
         try{
-            $this->conn = new PDO('mysql:host='.$this->host.';dbname='.$this->db_name,$this->db_user,$this->db_password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $GLOBALS['conn'] = new PDO('mysql:host='.$this->host.';dbname='.$this->db_name,$this->db_user,$this->db_password);
+            $GLOBALS['conn']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $e){
             echo 'Database Connection Error: '.$e->getMessage();
         }
-        $query = 'SELECT Order.order_id, Order.order_reference_id, Order.product_id,Order.cart_id,Order.quantity, Order.status, Order.amount, Order.order_date_time FROM orders Order 
-        WHERE order_reference_id = :order_reference_id';
-        
-        if($this->conn != null){
-        $statement = $this->conn->prepare($query);
-        $statement->bindParam(':order_reference_id', $this->order_reference_id);
-        $statement->execute();
+        if (filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            $this->invalidEmail = false;
+            $stmt = $GLOBALS['conn']->prepare('SELECT * FROM users WHERE email = :email');    
+            $stmt->bindValue(':email',$this->email);        
+            $stmt->execute(); 
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);            
+            if ($result) {
+                if(password_verify($this->password, $result['password'])){                    
+                    $this->userId = $result['user_id']; 
+                    
+                    $stmt = $GLOBALS['conn']->prepare('SELECT Order_id, order_reference_id, product_id, quantity, amount, order_date_time FROM '.$this->table.' WHERE user_id = :userid');                    
+                    $stmt->bindValue(':userid',$this->userId);
+                    $stmt ->execute();                     
+                    try{               
+                        if($stmt->execute()){
+                            $this->fetched = true; 
+                            $this->validUser = true;                            
+                            return $stmt;                                              
+                        }
+                        else{
+                            $this->fetched = false; 
+                            return error_log("Unable to fetch the orders");                   
+                        }                
+                      }
+                      catch (Exception $e){
+                        echo "Some error occured while performing database related tasks.".$e;
+                    }    
+                }                                
+            } 
+            else {
+                $this->validUser = false;
+            }            
         }
         else{
-            echo "Some error with DB connection . Please check it.";
+            $this->invalidEmail = true;
         }
-        return $statement;
     }
 }
 ?>
-
-
-       
-    
-
-    

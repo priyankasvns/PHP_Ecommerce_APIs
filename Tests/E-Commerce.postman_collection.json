@@ -128,7 +128,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"sadode1723@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"name\":\"Sandeep\",\r\n\"phone\":\"2028089898\",\r\n\"date_of_birth\":\"2018-02-01\",\r\n\"activated\":\"1\"}",
+					"raw": "{\"email\":\"admin@shopoo.com\",\r\n\"password\":\"admin\",\r\n\"name\":\"Shopoo Admin\",\r\n\"phone\":\"2028089898\",\r\n\"date_of_birth\":\"2000-01-01\",\r\n\"activated\":\"1\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -720,6 +720,277 @@
 						"Shopo",
 						"api",
 						"UpdatePassword.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1713@conestogac.on.ca&password=Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "73bbdf0e-b39d-4c71-92f6-e8fb1e8674f8",
+						"exec": [
+							"pm.test(\"Orders Fetched Successfully\", function () {\r",
+							"    if(pm.response.to.have.status(200)){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isOrderFetched).to.eql(true);\r",
+							"    pm.expect(jsonData.message).to.eql(\"orders fetched successfully\");\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1723@conestogac.on.ca&password=Password",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"FetchUserOrders.php"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "sadode1723@conestogac.on.ca"
+						},
+						{
+							"key": "password",
+							"value": "Password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1719@conestogac.on.ca&password=Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e0e23255-75ad-40ac-a8cc-295e1eb57098",
+						"exec": [
+							"pm.test(\"NoOrdersFound\", function () {\r",
+							"    if(pm.response.to.have.status(200)){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isOrderFetched).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"orders couldn't be fetched as there are no orders for the user\");\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1719@conestogac.on.ca&password=Password",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"FetchUserOrders.php"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "sadode1719@conestogac.on.ca"
+						},
+						{
+							"key": "password",
+							"value": "Password"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1719@conestogac.on.ca&password=Paword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3ffe1335-599c-4ead-be46-e0990839b806",
+						"exec": [
+							"pm.test(\"InvalidParameters\", function () {\r",
+							"    if(pm.response.to.have.status(200)){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isOrderFetched).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"orders couldn't be fetched. The parameters passed by the user are invalid\");\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1719@conestogac.on.ca&password=Paword",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"FetchUserOrders.php"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "sadode1719@conestogac.on.ca"
+						},
+						{
+							"key": "password",
+							"value": "Paword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1719@conestogac.on.ca",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9205aaa7-e4bc-4eae-9cac-e8e07c884bd8",
+						"exec": [
+							"pm.test(\"No Password provided\", function () {\r",
+							"    if(pm.response.to.have.status(200)){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isOrderFetched).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Please provide the password as well\");\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1719@conestogac.on.ca",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"FetchUserOrders.php"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "sadode1719@conestogac.on.ca"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/FetchUserOrders.php?password=Paword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3857ceab-5e27-4bdd-a761-6a8d05e96168",
+						"exec": [
+							"pm.test(\"No email or password passed\", function () {\r",
+							"    if(pm.response.to.have.status(200)){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isOrderFetched).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Please provide the email and other parameters\");\r",
+							"    }\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/Shopo/api/FetchUserOrders.php?password=Paword",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"FetchUserOrders.php"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "Paword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1723@conestogac.on.ca&password=Password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7e0edf95-5d12-4e45-8e77-873f79ca3a38",
+						"exec": [
+							"pm.test(\"Incorrect request method used\", function(){\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"Incorrect request method. Expected GET. Please try again later\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1723@conestogac.on.ca&password=Password",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"api",
+						"FetchUserOrders.php"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "sadode1723@conestogac.on.ca"
+						},
+						{
+							"key": "password",
+							"value": "Password"
+						}
 					]
 				}
 			},
