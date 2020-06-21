@@ -6,6 +6,326 @@
 	},
 	"item": [
 		{
+			"name": "http://localhost/myweb/php_project/CreateOrder.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "46487904-1fcf-429d-b7ff-0d7699275f58",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"Order is placed successfully!\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/CreateOrder.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"CreateOrder.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/myweb/php_project/CreateOrder.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5b711bb5-f61f-4c94-ae68-cb04b05abac4",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/CreateOrder.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"CreateOrder.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/myweb/php_project/CreateOrder.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dbcf95c7-98b2-4eb8-94bb-2c5aed5f8dc1",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"Please Login or register in order to make an order!  \");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"5\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/CreateOrder.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"CreateOrder.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/myweb/php_project/addProducts.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "838c8a98-f13b-410c-98b1-83d9c4da01c5",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"Update successful!\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\",\n\"product_id\":\"1\",\n\"quantity\":\"2\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/addProductToCart.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"addProductToCart.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/myweb/php_project/addProducts.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0082dcd0-75db-4efd-9408-7149cff1b9ab",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\",\n\"product_id\":\"1\",\n\"quantity\":\"2\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/addProductToCart.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"addProductToCart.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/myweb/php_project/addProducts.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "19a83113-50ba-4465-8dd9-a4db070682fb",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"Insert successful!\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\",\n\"product_id\":\"5\",\n\"quantity\":\"10\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/addProductToCart.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"addProductToCart.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/myweb/php_project/deleteProductFromCart.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "96abc8ce-f217-4eda-be97-fbe62665928f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\",\n\"product_id\":\"5\",\n\"quantity\":\"2\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/deleteProductFromCart.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"deleteProductFromCart.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "localhost/Shopo/api/FetchProducts.php?product_id=1",
 			"event": [
 				{
@@ -46,12 +366,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/FetchProducts.php?product_id=1",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/FetchProducts.php?product_id=1",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"FetchProducts.php"
 					],
@@ -92,12 +413,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost/Shopo/api/FetchProducts.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/FetchProducts.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"FetchProducts.php"
 					]
@@ -128,7 +450,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"admin@shopoo.com\",\r\n\"password\":\"admin\",\r\n\"name\":\"Shopoo Admin\",\r\n\"phone\":\"2028089898\",\r\n\"date_of_birth\":\"2000-01-01\",\r\n\"activated\":\"1\"}",
+					"raw": "{\"email\":\"sandeepadode@shopoo.com\",\r\n\"password\":\"password\",\r\n\"name\":\"Shopoo Third Admin\",\r\n\"phone\":\"2028089898\",\r\n\"date_of_birth\":\"1993-11-05\",\r\n\"activated\":\"1\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -136,17 +458,61 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/Register.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/Register.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"Register.php"
 					]
 				},
 				"description": "Register New users only"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/myweb/php_project/deleteProductFromCart.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3497eddc-9047-418d-b0cb-742ac7496348",
+						"exec": [
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"Deletion of product is successful!\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\",\n\"product_id\":\"5\",\n\"quantity\":\"10\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/deleteProductFromCart.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"deleteProductFromCart.php"
+					]
+				}
 			},
 			"response": []
 		},
@@ -181,12 +547,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/Register.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/Register.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"Register.php"
 					]
@@ -225,12 +592,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/Register.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/Register.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"Register.php"
 					]
@@ -269,12 +637,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/Register.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/Register.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"Register.php"
 					]
@@ -291,7 +660,7 @@
 					"script": {
 						"id": "40ef5374-85d0-4b3e-8200-d3d1cf5391aa",
 						"exec": [
-							"pm.test(\"ValidCredentials\", function () {\r",
+							"pm.test(\"ValidCredential Login\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.isLoggedIn).to.eql(true);\r",
 							"    pm.expect(jsonData.message).to.eql(\"Logged in successfully\")\r",
@@ -308,7 +677,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"sadode1724@conestogac.on.ca\",\r\n\"password\":\"Password\"}",
+					"raw": "{\"email\":\"admin@shopoo.com\",\r\n\"password\":\"admin\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -316,12 +685,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/Login.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/Login.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"Login.php"
 					]
@@ -361,12 +731,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/Login.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/Login.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"Login.php"
 					]
@@ -397,12 +768,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost/Shopo/api/Login.php?email=sadode1720@conestogac.on.ca&password=Password",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/Login.php?email=sadode1720@conestogac.on.ca&password=Password",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"Login.php"
 					],
@@ -451,12 +823,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/Login.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/Login.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"Login.php"
 					]
@@ -487,7 +860,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"sadode1713@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"activated\":false}",
+					"raw": "{\"email\":\"sandeepadode@shopoo.com\",\r\n\"password\":\"password\",\r\n\"activated\":false}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -495,12 +868,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/Activate_DeactivateUser.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/Activate_DeactivateUser.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"Activate_DeactivateUser.php"
 					]
@@ -531,7 +905,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"sadode1724@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"activated\":true}",
+					"raw": "{\"email\":\"sandeepadode@shopoo.com\",\r\n\"password\":\"Password\",\r\n\"activated\":true}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -539,12 +913,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/Activate_DeactivateUser.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/Activate_DeactivateUser.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"Activate_DeactivateUser.php"
 					]
@@ -574,12 +949,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost/Shopo/api/Activate_DeactivateUser.php?email=sadode1724@conestogac.on.ca&password=Password&activated=true",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/Activate_DeactivateUser.php?email=sadode1724@conestogac.on.ca&password=Password&activated=true",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"Activate_DeactivateUser.php"
 					],
@@ -625,7 +1001,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"sadode1713@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"newPassword\":\"Password123\"\r\n}",
+					"raw": "{\"email\":\"sadode17@conestogac.on.ca\",\r\n\"password\":\"Password\",\r\n\"newPassword\":\"Password123\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -633,12 +1009,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/UpdatePassword.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/UpdatePassword.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"UpdatePassword.php"
 					]
@@ -669,7 +1046,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"email\":\"sadode1713@conestogac.on.ca\",\r\n\"password\":\"Password123\",\r\n\"newPassword\":\"Password\"\r\n}",
+					"raw": "{\"email\":\"sandeepadode@shopoo.com\",\r\n\"password\":\"password\",\r\n\"newPassword\":\"Password123\"}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -677,12 +1054,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost/Shopo/api/UpdatePassword.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/UpdatePassword.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"UpdatePassword.php"
 					]
@@ -712,12 +1090,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost/Shopo/api/UpdatePassword.php",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/UpdatePassword.php",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"UpdatePassword.php"
 					]
@@ -749,23 +1128,24 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1723@conestogac.on.ca&password=Password",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/FetchUserOrders.php?email=sandeepadode@shopoo.com&password=Password123",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"FetchUserOrders.php"
 					],
 					"query": [
 						{
 							"key": "email",
-							"value": "sadode1723@conestogac.on.ca"
+							"value": "sandeepadode@shopoo.com"
 						},
 						{
 							"key": "password",
-							"value": "Password"
+							"value": "Password123"
 						}
 					]
 				}
@@ -796,23 +1176,24 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1719@conestogac.on.ca&password=Password",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/FetchUserOrders.php?email=sandeepadode@shopoo.com&password=Password123",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"FetchUserOrders.php"
 					],
 					"query": [
 						{
 							"key": "email",
-							"value": "sadode1719@conestogac.on.ca"
+							"value": "sandeepadode@shopoo.com"
 						},
 						{
 							"key": "password",
-							"value": "Password"
+							"value": "Password123"
 						}
 					]
 				}
@@ -843,12 +1224,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1719@conestogac.on.ca&password=Paword",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/FetchUserOrders.php?email=sadode1719@conestogac.on.ca&password=Paword",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"FetchUserOrders.php"
 					],
@@ -890,12 +1272,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1719@conestogac.on.ca",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/FetchUserOrders.php?email=sadode1719@conestogac.on.ca",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"FetchUserOrders.php"
 					],
@@ -933,12 +1316,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost/Shopo/api/FetchUserOrders.php?password=Paword",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/FetchUserOrders.php?password=Paword",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"FetchUserOrders.php"
 					],
@@ -973,12 +1357,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost/Shopo/api/FetchUserOrders.php?email=sadode1723@conestogac.on.ca&password=Password",
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/FetchUserOrders.php?email=sadode1723@conestogac.on.ca&password=Password",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"Shopo",
+						"Web Technologies (Project 2)",
 						"api",
 						"FetchUserOrders.php"
 					],
@@ -991,6 +1376,280 @@
 							"key": "password",
 							"value": "Password"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/Web Technologies (Project 2)/api/UpdateUserAddress.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6e89b61a-fd13-40ed-ab65-9077cf6740c0",
+						"exec": [
+							"pm.test(\"SuccessfullyUpdatesUserAddress\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.isUpdated).to.eql(true);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Address is updated\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\", \"address_id\":\"1\",\"last_name\":\"Tsai_2\",\"first_name\":\"Hung-Chun_2\",\"address1\":\"10 Valley Rd\",\"postcode\":\"N2P1H3\",\"city\":\"Brandford\",\"phone\":\"226-500-6041\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/UpdateUserAddress.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"UpdateUserAddress.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/Web Technologies (Project 2)/api/UpdateUserAddress.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "901554c8-c6a3-4781-8b9c-c2de600e8334",
+						"exec": [
+							"pm.test(\"Invalid Method Verb Selected\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"Please select either POST method\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\", \"address_id\":\"1\",\"last_name\":\"Tsai_2\",\"first_name\":\"Hung-Chun_2\",\"address1\":\"10 Valley Rd\",\"postcode\":\"N2P1H3\",\"city\":\"Brandford\",\"phone\":\"226-500-6041\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/UpdateUserAddress.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"UpdateUserAddress.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/Web Technologies (Project 2)/api/GetUserAddress.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5f52987-5fae-4a89-bf97-5cc675afd876",
+						"exec": [
+							"pm.test(\"User Address fetched\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.getAddress).to.eql(true);\r",
+							"    pm.expect(jsonData.message).to.eql(\"Get user's address\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"1\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/GetUserAddress.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"GetUserAddress.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost/Shopo/Web Technologies (Project 2)/api/GetUserAddress.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d1cbb2dc-faa5-4bf0-886b-3b017bbaef70",
+						"exec": [
+							"pm.test(\"No Address Fetched\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.getAddress).to.eql(false);\r",
+							"    pm.expect(jsonData.message).to.eql(\"There is no address in user's account\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user_id\":\"4\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/GetUserAddress.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"GetUserAddress.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/myweb/php_project/FetchAllCommentsForAProduct.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7f94cd83-11c5-414d-9fb0-0b38f184d308",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"product_id\":\"3\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/FetchAllCommentsForAProduct.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"FetchAllCommentsForAProduct.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/myweb/php_project/FetchAllCommentsForAProduct.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76635eab-1fa1-43f4-8253-560bc04d549e",
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"success! \");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"product_id\":\"3\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/Shopo/Web Technologies (Project 2)/api/FetchAllCommentsForAProduct.php",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Shopo",
+						"Web Technologies (Project 2)",
+						"api",
+						"FetchAllCommentsForAProduct.php"
 					]
 				}
 			},
